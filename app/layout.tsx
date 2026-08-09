@@ -1,21 +1,21 @@
 import type { Metadata } from "next";
-import { Outfit, Inter } from "next/font/google";
+import { Space_Grotesk, DM_Sans } from "next/font/google";
 import "./globals.css";
 
-const outfit = Outfit({
-  variable: "--font-outfit",
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space-grotesk",
   subsets: ["latin"],
   display: "swap",
 });
 
-const inter = Inter({
-  variable: "--font-inter",
+const dmSans = DM_Sans({
+  variable: "--font-dm-sans",
   subsets: ["latin"],
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Creative Brand Agency (CBA) | Digital Growth & Marketing Solutions Rajahmundry",
+  title: "Creative Brand Agency (CBA) | Digital Marketing & Strategy Rajahmundry",
   description: "Creative Brand Agency (CBA) builds high-performing digital brands through Branding, Social Media, Website Design, SEO, Analytics, Content Creation, Paid Ads & Video Marketing in Rajahmundry.",
   keywords: [
     "Creative Brand Agency",
@@ -49,11 +49,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${outfit.variable} ${inter.variable} scroll-smooth dark`}>
-      <body className="bg-[#06070b] text-gray-100 antialiased selection:bg-indigo-500 selection:text-white">
+    <html lang="en" className={`${spaceGrotesk.variable} ${dmSans.variable} scroll-smooth dark`}>
+      <body className="bg-[#111522] text-[#F4F2ED] font-sans antialiased selection:bg-[#4659B8] selection:text-white">
         {children}
       </body>
     </html>
   );
 }
+
 

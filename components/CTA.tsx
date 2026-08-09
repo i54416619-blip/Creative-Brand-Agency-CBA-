@@ -6,7 +6,6 @@ import {
   Mail,
   MapPin,
   ArrowRight,
-  Sparkles,
   CheckCircle2,
   MessageSquare,
   Send,
@@ -49,14 +48,12 @@ export default function CTA() {
     e.preventDefault();
     setSubmitted(true);
 
-    // Trigger celebratory confetti effect
     confetti({
       particleCount: 80,
       spread: 70,
       origin: { y: 0.6 },
     });
 
-    // Auto-construct WhatsApp message URL
     const messageText = `Hi Creative Brand Agency,%0A%0AMy Name: ${encodeURIComponent(formData.name)}%0APhone: ${encodeURIComponent(formData.phone)}%0AEmail: ${encodeURIComponent(formData.email)}%0AServices Needed: ${encodeURIComponent(selectedServices.join(", "))}%0AProject Brief: ${encodeURIComponent(formData.message)}`;
 
     setTimeout(() => {
@@ -65,93 +62,90 @@ export default function CTA() {
   };
 
   return (
-    <section id="contact" className="py-28 relative bg-[#040508] overflow-hidden">
-      {/* Background Orbs */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-radial-gradient pointer-events-none opacity-50" />
-      <div className="absolute bottom-0 right-0 w-[450px] h-[450px] bg-violet-600/10 rounded-full blur-[140px] pointer-events-none" />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+    <section id="contact" className="py-24 relative bg-[#0D1018] border-b border-white/10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Dramatic Container */}
-        <div className="glass-panel p-10 sm:p-16 md:p-20 rounded-[40px] border border-white/10 shadow-2xl relative overflow-hidden max-w-5xl mx-auto">
+        {/* Editorial Contact Banner */}
+        <div className="editorial-card p-10 sm:p-16 rounded-lg bg-[#181B24] border border-white/10 space-y-12">
           
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-xs font-semibold uppercase tracking-wider text-blue-400 mb-8">
-            <Sparkles className="w-4 h-4 animate-spin" />
-            <span>LET'S BUILD SOMETHING GREAT</span>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end pb-12 border-b border-white/10">
+            <div className="lg:col-span-8 space-y-4">
+              <div className="text-xs font-mono font-medium tracking-widest text-[#8C8FD8] uppercase">
+                START A CONVERSATION
+              </div>
+              <h2 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-[#F4F2ED] tracking-tight">
+                Have a business that <br />
+                <span className="text-[#6575C7]">needs to grow?</span>
+              </h2>
+            </div>
+            <div className="lg:col-span-4 space-y-4">
+              <p className="text-sm text-[#8D929E] leading-relaxed">
+                Partner with Creative Brand Agency for strategic marketing, high-converting websites, and high-ROI ad campaigns.
+              </p>
+              <div className="font-heading text-2xl font-bold text-[#F4F2ED]">
+                Let's talk.
+              </div>
+            </div>
           </div>
 
-          {/* Title */}
-          <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl font-black text-white tracking-tight mb-6 leading-[1.1]">
-            Ready to Grow <br />
-            <span className="text-gradient-electric">Your Brand?</span>
-          </h2>
-
-          {/* Subtitle */}
-          <p className="text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto font-normal leading-relaxed mb-10">
-            Let's turn your business into a brand people remember. Partner with Creative Brand Agency for strategic marketing, high-converting websites, and high-ROI ad campaigns.
-          </p>
-
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-5 mb-16">
+          {/* Action CTAs */}
+          <div className="flex flex-col sm:flex-row items-center gap-4">
             <button
               onClick={() => setFormOpen(true)}
-              className="w-full sm:w-auto group relative inline-flex items-center justify-center px-10 py-5 text-lg font-bold text-white transition-all rounded-2xl overflow-hidden shadow-2xl shadow-indigo-600/40 hover:scale-[1.03]"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#4659B8] hover:bg-[#3b4ca0] text-[#F4F2ED] font-heading font-semibold text-xs uppercase tracking-wider rounded-md transition-colors shadow-sm"
             >
-              <span className="absolute inset-0 bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600"></span>
-              <span className="relative flex items-center gap-3">
-                Start Your Project
-                <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
-              </span>
+              <span>Start Your Project</span>
+              <ArrowRight className="w-4 h-4" />
             </button>
 
             <a
               href="https://wa.me/919381237797?text=Hi%20Creative%20Brand%20Agency,%20I'd%20like%20to%20discuss%20a%20project!"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-5 text-base font-semibold text-white bg-emerald-600/90 hover:bg-emerald-600 rounded-2xl border border-emerald-500/30 transition-all hover:scale-[1.02] gap-3 shadow-lg shadow-emerald-950/50"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#111522] hover:bg-[#202430] text-[#F4F2ED] border border-white/10 font-heading font-semibold text-xs uppercase tracking-wider rounded-md transition-colors"
             >
-              <MessageSquare className="w-5 h-5" />
+              <MessageSquare className="w-4 h-4 text-[#8C8FD8]" />
               <span>Instant WhatsApp Chat</span>
             </a>
           </div>
 
-          {/* Direct Contact Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-10 border-t border-white/10 text-left">
+          {/* Contact Details Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-8 border-t border-white/10">
             <a
               href="tel:9381237797"
-              className="p-5 rounded-2xl bg-slate-900/60 border border-white/5 hover:border-blue-500/40 transition-colors flex items-center gap-4 group"
+              className="p-4 rounded bg-[#111522] border border-white/5 hover:border-[#4659B8] transition-colors flex items-center gap-4"
             >
-              <div className="p-3 rounded-xl bg-blue-500/10 text-blue-400 group-hover:scale-110 transition-transform">
-                <Phone className="w-5 h-5" />
+              <div className="p-2.5 rounded bg-[#181B24] text-[#6575C7]">
+                <Phone className="w-4 h-4" />
               </div>
               <div>
-                <div className="text-[11px] font-bold text-slate-400 uppercase">Call Directly</div>
-                <div className="text-sm font-bold text-white group-hover:text-blue-300">9381237797</div>
+                <div className="text-[10px] font-mono text-[#8D929E] uppercase">Call Directly</div>
+                <div className="text-xs font-bold text-[#F4F2ED]">9381237797</div>
               </div>
             </a>
 
             <a
               href="mailto:creativebrandagency666@gmail.com"
-              className="p-5 rounded-2xl bg-slate-900/60 border border-white/5 hover:border-violet-500/40 transition-colors flex items-center gap-4 group"
+              className="p-4 rounded bg-[#111522] border border-white/5 hover:border-[#4659B8] transition-colors flex items-center gap-4"
             >
-              <div className="p-3 rounded-xl bg-violet-500/10 text-violet-400 group-hover:scale-110 transition-transform">
-                <Mail className="w-5 h-5" />
+              <div className="p-2.5 rounded bg-[#181B24] text-[#6575C7]">
+                <Mail className="w-4 h-4" />
               </div>
               <div>
-                <div className="text-[11px] font-bold text-slate-400 uppercase">Email Us</div>
-                <div className="text-xs font-bold text-white group-hover:text-violet-300 truncate max-w-[180px] sm:max-w-none">
+                <div className="text-[10px] font-mono text-[#8D929E] uppercase">Email Agency</div>
+                <div className="text-xs font-bold text-[#F4F2ED] truncate max-w-[180px] sm:max-w-none">
                   creativebrandagency666@gmail.com
                 </div>
               </div>
             </a>
 
-            <div className="p-5 rounded-2xl bg-slate-900/60 border border-white/5 flex items-center gap-4">
-              <div className="p-3 rounded-xl bg-indigo-500/10 text-indigo-400">
-                <MapPin className="w-5 h-5" />
+            <div className="p-4 rounded bg-[#111522] border border-white/5 flex items-center gap-4">
+              <div className="p-2.5 rounded bg-[#181B24] text-[#6575C7]">
+                <MapPin className="w-4 h-4" />
               </div>
               <div>
-                <div className="text-[11px] font-bold text-slate-400 uppercase">Headquarters</div>
-                <div className="text-sm font-bold text-white">Rajahmundry</div>
+                <div className="text-[10px] font-mono text-[#8D929E] uppercase">Headquarters</div>
+                <div className="text-xs font-bold text-[#F4F2ED]">Rajahmundry, Andhra Pradesh</div>
               </div>
             </div>
           </div>
@@ -160,38 +154,35 @@ export default function CTA() {
 
       </div>
 
-      {/* Interactive Start Project Form Modal */}
+      {/* Project Inquiry Modal */}
       {formOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md animate-in fade-in duration-200">
-          <div className="glass-panel w-full max-w-2xl p-8 sm:p-10 rounded-3xl border border-white/20 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-in fade-in">
+          <div className="editorial-card w-full max-w-2xl p-8 sm:p-10 rounded-lg bg-[#181B24] border border-white/20 shadow-2xl relative max-h-[90vh] overflow-y-auto">
             
             <button
               onClick={() => {
                 setFormOpen(false);
                 setSubmitted(false);
               }}
-              className="absolute top-6 right-6 p-2 rounded-full bg-slate-800 text-slate-400 hover:text-white"
+              className="absolute top-6 right-6 p-2 rounded-md bg-[#111522] text-[#8D929E] hover:text-white border border-white/10"
             >
-              <X className="w-5 h-5" />
+              <X className="w-4 h-4" />
             </button>
 
             {!submitted ? (
               <form onSubmit={handleSubmit} className="space-y-6 text-left">
-                <div>
-                  <div className="inline-flex items-center gap-2 text-xs font-bold text-blue-400 uppercase tracking-widest mb-1">
+                <div className="border-b border-white/10 pb-4">
+                  <div className="text-xs font-mono text-[#8C8FD8] uppercase">
                     PROJECT INQUIRY
                   </div>
-                  <h3 className="font-heading text-2xl sm:text-3xl font-black text-white">
+                  <h3 className="font-heading text-2xl font-bold text-[#F4F2ED] mt-1">
                     Tell Us About Your Brand
                   </h3>
-                  <p className="text-xs text-slate-400 mt-1">
-                    Select the services you need and send us your project details.
-                  </p>
                 </div>
 
                 {/* Service Selection Pills */}
                 <div>
-                  <label className="block text-xs font-bold text-slate-300 uppercase mb-2">
+                  <label className="block text-xs font-mono text-[#8D929E] uppercase mb-2">
                     Select Services Needed:
                   </label>
                   <div className="flex flex-wrap gap-2">
@@ -202,10 +193,10 @@ export default function CTA() {
                           key={service}
                           type="button"
                           onClick={() => toggleService(service)}
-                          className={`px-3 py-1.5 rounded-full text-xs font-semibold transition-all ${
+                          className={`px-3 py-1 rounded text-xs font-mono transition-colors ${
                             isSelected
-                              ? "bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-md"
-                              : "bg-slate-900 text-slate-400 border border-white/10 hover:text-white"
+                              ? "bg-[#4659B8] text-white"
+                              : "bg-[#111522] text-[#8D929E] border border-white/10 hover:text-white"
                           }`}
                         >
                           {isSelected ? "✓ " : "+ "}{service}
@@ -215,69 +206,69 @@ export default function CTA() {
                   </div>
                 </div>
 
-                {/* Form Fields */}
+                {/* Fields */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-semibold text-slate-300 mb-1">Your Name *</label>
+                    <label className="block text-xs font-medium text-[#D9D9D5] mb-1">Your Name *</label>
                     <input
                       type="text"
                       required
                       placeholder="e.g. Rahul Sharma"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full bg-slate-900/90 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500"
+                      className="w-full bg-[#111522] border border-white/10 rounded px-3.5 py-2.5 text-xs text-white placeholder-[#8D929E] focus:outline-none focus:border-[#4659B8]"
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-semibold text-slate-300 mb-1">Phone / WhatsApp Number *</label>
+                    <label className="block text-xs font-medium text-[#D9D9D5] mb-1">Phone / WhatsApp *</label>
                     <input
                       type="tel"
                       required
                       placeholder="e.g. 9381237797"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full bg-slate-900/90 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500"
+                      className="w-full bg-[#111522] border border-white/10 rounded px-3.5 py-2.5 text-xs text-white placeholder-[#8D929E] focus:outline-none focus:border-[#4659B8]"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-slate-300 mb-1">Email Address</label>
+                  <label className="block text-xs font-medium text-[#D9D9D5] mb-1">Email Address</label>
                   <input
                     type="email"
                     placeholder="e.g. info@yourbusiness.com"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full bg-slate-900/90 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500"
+                    className="w-full bg-[#111522] border border-white/10 rounded px-3.5 py-2.5 text-xs text-white placeholder-[#8D929E] focus:outline-none focus:border-[#4659B8]"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-slate-300 mb-1">Project Details / Goals</label>
+                  <label className="block text-xs font-medium text-[#D9D9D5] mb-1">Project Goals / Brief</label>
                   <textarea
                     rows={3}
-                    placeholder="Tell us briefly about your business and goals..."
+                    placeholder="Tell us briefly about your business goals..."
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full bg-slate-900/90 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500"
+                    className="w-full bg-[#111522] border border-white/10 rounded px-3.5 py-2.5 text-xs text-white placeholder-[#8D929E] focus:outline-none focus:border-[#4659B8]"
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full py-4 rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 text-white font-bold text-sm shadow-xl shadow-indigo-950 flex items-center justify-center gap-2 hover:opacity-95"
+                  className="w-full py-3.5 rounded bg-[#4659B8] hover:bg-[#3b4ca0] text-white font-semibold text-xs uppercase tracking-wider shadow-sm flex items-center justify-center gap-2"
                 >
                   <Send className="w-4 h-4" />
                   <span>Send Inquiry & Open WhatsApp</span>
                 </button>
               </form>
             ) : (
-              <div className="py-12 text-center space-y-4">
-                <div className="w-16 h-16 bg-emerald-500/20 text-emerald-400 rounded-full flex items-center justify-center mx-auto">
-                  <CheckCircle2 className="w-10 h-10" />
+              <div className="py-10 text-center space-y-4">
+                <div className="w-12 h-12 bg-[#4659B8]/20 text-[#6575C7] rounded flex items-center justify-center mx-auto">
+                  <CheckCircle2 className="w-6 h-6" />
                 </div>
-                <h3 className="font-heading text-2xl font-black text-white">Inquiry Initialized!</h3>
-                <p className="text-xs text-slate-300 max-w-md mx-auto">
+                <h3 className="font-heading text-xl font-bold text-[#F4F2ED]">Inquiry Sent</h3>
+                <p className="text-xs text-[#8D929E] max-w-md mx-auto">
                   Opening WhatsApp to connect you directly with Creative Brand Agency...
                 </p>
               </div>
@@ -289,3 +280,4 @@ export default function CTA() {
     </section>
   );
 }
+

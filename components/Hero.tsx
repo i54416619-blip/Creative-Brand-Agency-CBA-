@@ -1,130 +1,145 @@
 "use client";
 
 import React, { useState } from "react";
-import { ArrowRight, Sparkles, Compass, CheckCircle2, ShieldCheck } from "lucide-react";
-import ParticleEcosystem from "./ParticleEcosystem";
+import { ArrowRight, ArrowDownRight, CheckCircle2 } from "lucide-react";
 
 export default function Hero() {
-  const [headlineMode, setHeadlineMode] = useState<"standard" | "aggressive">("standard");
+  const [headlineMode, setHeadlineMode] = useState<"editorial" | "growth">("editorial");
 
   return (
-    <section className="relative min-h-screen pt-32 pb-20 overflow-hidden flex flex-col justify-center bg-digital-grid">
-      {/* Dynamic Background Glow Orbs */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-glow-orb pointer-events-none opacity-60" />
-      <div className="absolute bottom-10 right-10 w-[400px] h-[400px] bg-blue-600/10 rounded-full blur-[100px] pointer-events-none" />
-
+    <section className="relative min-h-[90vh] pt-36 pb-20 flex flex-col justify-center bg-editorial-grid border-b border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        
+        {/* Editorial Top Metadata Header */}
+        <div className="flex flex-col md:flex-row md:items-center justify-between pb-8 mb-12 border-b border-white/10 gap-4">
+          <div className="flex items-center gap-3">
+            <span className="w-2 h-2 rounded-full bg-[#4659B8]" />
+            <span className="text-xs font-mono font-medium tracking-widest uppercase text-[#8D929E]">
+              CREATIVE BRAND AGENCY · RAJAHMUNDRY, ANDHRA PRADESH
+            </span>
+          </div>
+
+          <div className="flex items-center gap-3 text-xs text-[#8D929E] font-mono">
+            <span>MODE:</span>
+            <button
+              onClick={() => setHeadlineMode("editorial")}
+              className={`px-2.5 py-1 rounded text-[11px] font-semibold transition-colors ${
+                headlineMode === "editorial"
+                  ? "bg-[#4659B8] text-white"
+                  : "bg-[#181B24] text-[#8D929E] hover:text-[#F4F2ED]"
+              }`}
+            >
+              EDITORIAL
+            </button>
+            <button
+              onClick={() => setHeadlineMode("growth")}
+              className={`px-2.5 py-1 rounded text-[11px] font-semibold transition-colors ${
+                headlineMode === "growth"
+                  ? "bg-[#4659B8] text-white"
+                  : "bg-[#181B24] text-[#8D929E] hover:text-[#F4F2ED]"
+              }`}
+            >
+              GROWTH
+            </button>
+          </div>
+        </div>
+
+        {/* 12-Column Editorial Hero Composition */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
           
-          {/* Left Hero Content (7 cols) */}
-          <div className="lg:col-span-7 flex flex-col items-start space-y-6">
+          {/* Left Column (7 cols): Editorial Typography */}
+          <div className="lg:col-span-7 space-y-8">
             
-            {/* Location & Brand Badge */}
-            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full glass-panel border border-indigo-500/30 text-xs font-semibold tracking-wider uppercase text-indigo-300 shadow-lg shadow-indigo-950/40">
-              <Sparkles className="w-3.5 h-3.5 text-blue-400 animate-pulse" />
-              <span>CREATIVE BRAND AGENCY</span>
-              <span className="text-slate-500">•</span>
-              <span className="text-slate-300">RAJAHMUNDRY</span>
-            </div>
-
-            {/* Headline Switcher Pill */}
-            <div className="flex items-center gap-2 bg-slate-900/60 p-1 rounded-lg border border-white/5 text-xs text-slate-400">
-              <span className="px-2 py-0.5 text-[11px] font-medium text-slate-400">Headline Style:</span>
-              <button
-                onClick={() => setHeadlineMode("standard")}
-                className={`px-3 py-1 rounded-md text-xs font-medium transition-all ${
-                  headlineMode === "standard"
-                    ? "bg-indigo-600 text-white shadow-md shadow-indigo-950"
-                    : "text-slate-400 hover:text-white"
-                }`}
-              >
-                Creative
-              </button>
-              <button
-                onClick={() => setHeadlineMode("aggressive")}
-                className={`px-3 py-1 rounded-md text-xs font-medium transition-all ${
-                  headlineMode === "aggressive"
-                    ? "bg-indigo-600 text-white shadow-md shadow-indigo-950"
-                    : "text-slate-400 hover:text-white"
-                }`}
-              >
-                Growth Engine
-              </button>
-            </div>
-
-            {/* Main Headline */}
-            <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-black text-white tracking-tight leading-[1.1]">
-              {headlineMode === "standard" ? (
+            <h1 className="font-heading text-4xl sm:text-6xl lg:text-7xl font-bold text-[#F4F2ED] tracking-tight leading-[1.05]">
+              {headlineMode === "editorial" ? (
                 <>
-                  We Build Brands <br />
-                  <span className="text-gradient-accent">That Get Noticed.</span>
+                  We make brands <br />
+                  <span className="text-[#6575C7]">matter.</span>
                 </>
               ) : (
                 <>
                   Your Business. <br />
-                  <span className="text-gradient-electric">Our Digital Growth Engine.</span>
+                  <span className="text-[#8C8FD8]">Our Growth Engine.</span>
                 </>
               )}
             </h1>
 
-            {/* Supporting Text */}
-            <p className="text-lg sm:text-xl text-slate-300 max-w-2xl font-normal leading-relaxed">
-              We transform businesses into powerful digital brands through strategy, creativity, technology and performance marketing.
+            <p className="text-lg sm:text-xl text-[#8D929E] max-w-xl font-normal leading-relaxed">
+              Strategy, design and performance digital marketing for businesses ready to establish a dominant market presence.
             </p>
 
-            {/* Feature Bullets */}
-            <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs font-medium text-slate-400 pt-1">
-              <div className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-                <span>Strategy-Driven</span>
-              </div>
-              <div className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-blue-400" />
-                <span>High-Converting Websites</span>
-              </div>
-              <div className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-violet-400" />
-                <span>ROI Performance Ads</span>
-              </div>
-            </div>
-
-            {/* Hero Action CTAs */}
-            <div className="flex flex-wrap items-center gap-4 pt-4 w-full sm:w-auto">
+            {/* CTAs */}
+            <div className="flex flex-wrap items-center gap-4 pt-2">
               <a
                 href="#contact"
-                className="w-full sm:w-auto group relative inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white transition-all rounded-2xl overflow-hidden shadow-xl shadow-indigo-600/30 hover:shadow-indigo-500/50 hover:scale-[1.02]"
+                className="inline-flex items-center gap-3 px-8 py-4 bg-[#4659B8] hover:bg-[#3b4ca0] text-[#F4F2ED] font-heading font-semibold text-sm uppercase tracking-wider rounded-md transition-all shadow-md group"
               >
-                <span className="absolute inset-0 bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600"></span>
-                <span className="relative flex items-center justify-center gap-2">
-                  Start a Project
-                  <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
-                </span>
+                <span>Start a Project</span>
+                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
               </a>
 
               <a
-                href="#services"
-                className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-slate-200 hover:text-white glass-panel hover:bg-white/10 rounded-2xl border border-white/10 transition-all hover:scale-[1.02] gap-2"
+                href="#work"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-[#181B24] hover:bg-[#202430] text-[#D9D9D5] hover:text-[#F4F2ED] font-heading font-semibold text-sm uppercase tracking-wider rounded-md border border-white/10 transition-colors"
               >
-                <Compass className="w-5 h-5 text-indigo-400" />
-                <span>Explore Our Services</span>
+                <span>View Our Work</span>
+                <ArrowDownRight className="w-4 h-4 text-[#8D929E]" />
               </a>
             </div>
 
-            {/* Trust badge note */}
-            <div className="flex items-center gap-3 pt-2 text-xs text-slate-400">
-              <ShieldCheck className="w-4 h-4 text-indigo-400" />
-              <span>Based in Rajahmundry • Serving Brands Nationwide</span>
+            {/* Credentials note */}
+            <div className="flex items-center gap-6 pt-4 text-xs font-mono text-[#8D929E] border-t border-white/5">
+              <span>BRANDING</span>
+              <span>•</span>
+              <span>WEBSITE DESIGN</span>
+              <span>•</span>
+              <span>PERFORMANCE ADS</span>
+              <span>•</span>
+              <span>SEO</span>
             </div>
 
           </div>
 
-          {/* Right Hero Ecosystem Canvas (5 cols) */}
+          {/* Right Column (5 cols): Editorial Visual Frame */}
           <div className="lg:col-span-5 w-full">
-            <ParticleEcosystem />
+            <div className="editorial-card p-8 rounded-lg space-y-6 bg-[#181B24] border border-white/10 relative overflow-hidden">
+              
+              <div className="flex items-center justify-between border-b border-white/10 pb-4 text-xs font-mono text-[#8D929E]">
+                <span>CBA CORE DISCIPLINES</span>
+                <span>EST. RAJAHMUNDRY</span>
+              </div>
+
+              {/* Architectural discipline list */}
+              <div className="space-y-4 font-mono text-xs">
+                <div className="flex items-center justify-between p-3 bg-[#111522] rounded border border-white/5">
+                  <span className="text-[#8C8FD8]">01 / BRAND IDENTITY</span>
+                  <span className="text-[#8D929E]">STRATEGY & ART</span>
+                </div>
+                <div className="flex items-center justify-between p-3 bg-[#111522] rounded border border-white/5">
+                  <span className="text-[#6575C7]">02 / DIGITAL PLATFORMS</span>
+                  <span className="text-[#8D929E]">WEB & UI/UX</span>
+                </div>
+                <div className="flex items-center justify-between p-3 bg-[#111522] rounded border border-white/5">
+                  <span className="text-[#4659B8]">03 / MEDIA & CONTENT</span>
+                  <span className="text-[#8D929E]">VIDEO & REELS</span>
+                </div>
+                <div className="flex items-center justify-between p-3 bg-[#111522] rounded border border-white/5">
+                  <span className="text-[#D9D9D5]">04 / PERFORMANCE ADS</span>
+                  <span className="text-[#8D929E]">META & GOOGLE</span>
+                </div>
+              </div>
+
+              <div className="pt-2 text-xs text-[#8D929E] leading-relaxed">
+                Empowering businesses across Andhra Pradesh and beyond with measurable digital execution.
+              </div>
+
+            </div>
           </div>
 
         </div>
+
       </div>
     </section>
   );
 }
+

@@ -14,7 +14,7 @@ import WhatsAppFloatingButton from "@/components/WhatsAppFloatingButton";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#06070b] text-white selection:bg-indigo-600 selection:text-white relative">
+    <main className="min-h-screen bg-[#111522] text-[#F4F2ED] selection:bg-[#4659B8] selection:text-white relative">
       <Navbar />
       <Hero />
       <TrustIntro />
@@ -29,3 +29,4 @@ export default function Home() {
     </main>
   );
 }
+

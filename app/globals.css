@@ -2,113 +2,78 @@
 
 @layer base {
   :root {
-    --bg-dark: #06070b;
-    --bg-card: #0d0f17;
-    --bg-card-hover: #131624;
-    --border-glow: rgba(99, 102, 241, 0.2);
-    --accent-blue: #3b82f6;
-    --accent-violet: #8b5cf6;
-    --accent-cyan: #06b6d4;
+    --bg-dark: #111522;
+    --bg-card: #181B24;
+    --bg-deep: #0D1018;
+    --cba-blue: #4659B8;
+    --muted-blue: #6575C7;
+    --soft-lavender: #8C8FD8;
+    --warm-white: #F4F2ED;
+    --light-neutral: #D9D9D5;
+    --muted-text: #8D929E;
+    --border-subtle: rgba(255, 255, 255, 0.10);
   }
 
   body {
     background-color: var(--bg-dark);
-    color: #f3f4f6;
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    color: var(--warm-white);
+    font-family: var(--font-dm-sans), system-ui, -apple-system, sans-serif;
     overflow-x: hidden;
     scroll-behavior: smooth;
   }
 }
 
 /* Typography Headings */
-h1, h2, h3, h4, .font-heading {
-  font-family: var(--font-outfit), 'Outfit', 'Inter', sans-serif;
+h1, h2, h3, h4, h5, h6, .font-heading {
+  font-family: var(--font-space-grotesk), sans-serif;
+  letter-spacing: -0.02em;
 }
 
-/* Background grid effect */
-.bg-digital-grid {
+.font-sans {
+  font-family: var(--font-dm-sans), sans-serif;
+}
+
+/* Subtle Editorial Grid Lines */
+.bg-editorial-grid {
   background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-  background-size: 40px 40px;
+    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
 }
 
-.bg-radial-gradient {
-  background: radial-gradient(circle at 50% 20%, rgba(59, 130, 246, 0.15) 0%, rgba(139, 92, 246, 0.08) 40%, transparent 70%);
+/* Restrained Panels */
+.editorial-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  transition: border-color 0.3s ease, transform 0.3s ease;
 }
 
-.bg-glow-orb {
-  background: radial-gradient(circle, rgba(99, 102, 241, 0.25) 0%, rgba(168, 85, 247, 0.15) 50%, transparent 70%);
-  filter: blur(80px);
+.editorial-card:hover {
+  border-color: rgba(70, 89, 184, 0.4);
 }
 
-/* Glassmorphism */
-.glass-panel {
-  background: rgba(13, 15, 23, 0.7);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.glass-panel-interactive {
-  background: rgba(13, 15, 23, 0.6);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.glass-panel-interactive:hover {
-  background: rgba(19, 22, 36, 0.85);
-  border-color: rgba(99, 102, 241, 0.4);
-  box-shadow: 0 10px 30px -10px rgba(99, 102, 241, 0.25);
-  transform: translateY(-3px);
-}
-
-/* Text Gradients */
-.text-gradient-primary {
-  background: linear-gradient(135deg, #ffffff 30%, #a5b4fc 70%, #818cf8 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.text-gradient-accent {
-  background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 50%, #38bdf8 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.text-gradient-electric {
-  background: linear-gradient(90deg, #38bdf8, #818cf8, #c084fc, #38bdf8);
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: shine 6s linear infinite;
-}
-
-@keyframes shine {
-  to {
-    background-position: 200% center;
-  }
+.editorial-border {
+  border-color: var(--border-subtle);
 }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #06070b;
+  background: #0D1018;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1f293d;
-  border-radius: 4px;
+  background: #252A38;
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #374151;
+  background: #4659B8;
 }
 
 /* Hide scrollbar utility */
@@ -120,19 +85,4 @@ h1, h2, h3, h4, .font-heading {
   scrollbar-width: none;
 }
 
-/* Pulse animation */
-@keyframes pulseGlow {
-  0%, 100% {
-    opacity: 0.4;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.8;
-    transform: scale(1.05);
-  }
-}
-
-.animate-pulse-glow {
-  animation: pulseGlow 4s ease-in-out infinite;
-}
 
