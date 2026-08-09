@@ -251,7 +251,7 @@ export default function ServicesGrid() {
                         <div>
                           <div className="flex items-center gap-3">
                             <span className="font-mono text-xs text-[#8D929E]">{service.num}</span>
-                            <h4 className="font-heading text-lg font-bold text-[#F4F2ED] group-hover:text-[#8C8FD8] transition-colors">
+                            <h4 className="font-heading text-lg font-bold text-[#F4F2ED] group-hover:text-[#8C8FD8] transition-all duration-300 transform group-hover:translate-x-1">
                               {service.title}
                             </h4>
                           </div>
@@ -262,57 +262,60 @@ export default function ServicesGrid() {
                       </div>
 
                       <div className="flex items-center gap-2 text-xs font-semibold text-[#8C8FD8] group-hover:text-[#F4F2ED] shrink-0 self-end sm:self-center">
-                        <span>View Deliverables</span>
-                        <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
+                        <span className="link-underline">View Deliverables</span>
+                        <ArrowRight className="w-3.5 h-3.5 arrow-shift" />
                       </div>
                     </div>
                   );
                 })}
               </div>
-
             </div>
           ))}
+
+
         </div>
+
 
       </div>
 
-      {/* Service Modal Drawer */}
+      {/* Deliverable Scope Drawer Modal */}
       {selectedService && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-in fade-in duration-200">
-          <div className="editorial-card w-full max-w-xl p-8 rounded-lg bg-[#181B24] border border-white/20 shadow-2xl relative space-y-6 max-h-[90vh] overflow-y-auto">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-in fade-in">
+          <div className="editorial-card w-full max-w-lg p-8 rounded-lg bg-[#181B24] border border-white/20 shadow-2xl relative space-y-6">
             
             <button
               onClick={() => setSelectedService(null)}
-              className="absolute top-6 right-6 p-2 rounded-md bg-[#111522] text-[#8D929E] hover:text-white transition-colors border border-white/10"
+              className="absolute top-6 right-6 p-2 rounded bg-[#111522] text-[#8D929E] hover:text-white border border-white/10"
             >
               <X className="w-4 h-4" />
             </button>
 
-            <div className="flex items-center gap-4 border-b border-white/10 pb-4">
-              <div className="p-3.5 rounded bg-[#4659B8] text-white">
-                <selectedService.icon className="w-6 h-6" />
-              </div>
-              <div>
-                <div className="text-xs font-mono text-[#8C8FD8]">SERVICE {selectedService.num} · {selectedService.discipline}</div>
-                <h3 className="font-heading text-xl font-bold text-[#F4F2ED]">{selectedService.title}</h3>
-              </div>
+            <div>
+              <span className="text-xs font-mono text-[#4659B8] font-bold uppercase">
+                {selectedService.discipline} DELIVERABLE SCOPE
+              </span>
+              <h3 className="font-heading text-2xl font-bold text-[#F4F2ED] mt-1">
+                {selectedService.title}
+              </h3>
+              <p className="text-xs text-[#8D929E] mt-2 leading-relaxed">
+                {selectedService.fullDesc}
+              </p>
             </div>
 
-            <p className="text-xs text-[#D9D9D5] leading-relaxed">
-              {selectedService.fullDesc}
-            </p>
-
             <div className="space-y-3 pt-2 border-t border-white/10">
-              <h4 className="text-xs font-bold uppercase tracking-wider text-[#8D929E]">Key Deliverables:</h4>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                {selectedService.deliverables.map((item, i) => (
-                  <div key={i} className="flex items-center gap-2 text-xs text-[#F4F2ED] bg-[#111522] p-2.5 rounded border border-white/5">
-                    <CheckCircle className="w-3.5 h-3.5 text-[#6575C7] shrink-0" />
+              <h4 className="text-xs font-mono font-bold text-[#8C8FD8] uppercase">
+                Included Deliverables:
+              </h4>
+              <div className="space-y-2">
+                {selectedService.deliverables.map((item, idx) => (
+                  <div key={idx} className="flex items-start gap-2.5 text-xs text-[#D9D9D5]">
+                    <CheckCircle className="w-4 h-4 text-[#4659B8] shrink-0 mt-0.5" />
                     <span>{item}</span>
                   </div>
                 ))}
               </div>
             </div>
+
 
             <div className="pt-4 flex flex-col sm:flex-row items-center gap-3">
               <a

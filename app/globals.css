@@ -85,4 +85,75 @@ h1, h2, h3, h4, h5, h6, .font-heading {
   scrollbar-width: none;
 }
 
+/* Human Motion Easing & Transitions */
+
+:root {
+  --ease-human: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-bounce-subtle: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Link Underline Animation */
+.link-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.link-underline::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 1px;
+  bottom: -2px;
+  left: 0;
+  background-color: var(--cba-blue);
+  transform-origin: bottom right;
+  transition: transform 0.3s var(--ease-human);
+}
+
+.link-underline:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* Image Reveal Animation */
+.mask-reveal {
+  clip-path: inset(0 0 100% 0);
+  transition: clip-path 0.9s var(--ease-human), transform 0.9s var(--ease-human);
+}
+
+.mask-reveal.revealed {
+  clip-path: inset(0 0 0 0);
+}
+
+/* Button Rise Utility */
+.btn-human-lift {
+  transition: transform 0.25s var(--ease-human), background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.btn-human-lift:hover {
+  transform: translateY(-2px);
+}
+
+/* Arrow Slide Utility */
+.group:hover .arrow-shift {
+  transform: translateX(4px);
+  transition: transform 0.25s var(--ease-human);
+}
+
+/* Reduced Motion Override */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .mask-reveal {
+    clip-path: none !important;
+  }
+}
+
+
 

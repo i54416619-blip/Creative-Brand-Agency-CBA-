@@ -92,22 +92,23 @@ export default function CTA() {
           <div className="flex flex-col sm:flex-row items-center gap-4">
             <button
               onClick={() => setFormOpen(true)}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#4659B8] hover:bg-[#3b4ca0] text-[#F4F2ED] font-heading font-semibold text-xs uppercase tracking-wider rounded-md transition-colors shadow-sm"
+              className="w-full sm:w-auto group inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#4659B8] hover:bg-[#3b4ca0] text-[#F4F2ED] font-heading font-semibold text-xs uppercase tracking-wider rounded-md transition-all btn-human-lift shadow-sm"
             >
               <span>Start Your Project</span>
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-4 h-4 arrow-shift" />
             </button>
 
             <a
               href="https://wa.me/919381237797?text=Hi%20Creative%20Brand%20Agency,%20I'd%20like%20to%20discuss%20a%20project!"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#111522] hover:bg-[#202430] text-[#F4F2ED] border border-white/10 font-heading font-semibold text-xs uppercase tracking-wider rounded-md transition-colors"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#111522] hover:bg-[#202430] text-[#F4F2ED] border border-white/10 font-heading font-semibold text-xs uppercase tracking-wider rounded-md transition-all btn-human-lift"
             >
               <MessageSquare className="w-4 h-4 text-[#8C8FD8]" />
               <span>Instant WhatsApp Chat</span>
             </a>
           </div>
+
 
           {/* Contact Details Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-8 border-t border-white/10">

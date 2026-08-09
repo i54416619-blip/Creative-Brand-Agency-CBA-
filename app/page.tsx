@@ -11,10 +11,14 @@ import Process from "@/components/Process";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 import WhatsAppFloatingButton from "@/components/WhatsAppFloatingButton";
+import ScrollProgressBar from "@/components/ScrollProgressBar";
+import IntroSequence from "@/components/IntroSequence";
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-[#111522] text-[#F4F2ED] selection:bg-[#4659B8] selection:text-white relative">
+      <ScrollProgressBar />
+      <IntroSequence />
       <Navbar />
       <Hero />
       <TrustIntro />
@@ -29,4 +33,5 @@ export default function Home() {
     </main>
   );
 }
+
 

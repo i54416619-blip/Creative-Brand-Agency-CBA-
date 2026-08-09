@@ -107,26 +107,27 @@ export default function Portfolio() {
             >
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                 
-                {/* Left Visual Area (7 cols or 6 cols depending on variant) */}
-                <div className={`${project.layoutVariant === "full-width" ? "lg:col-span-12" : "lg:col-span-7"} bg-[#111522] p-8 rounded border border-white/5 space-y-6 relative overflow-hidden min-h-[220px] flex flex-col justify-between`}>
+                {/* Left Visual Area (7 cols or 12 cols depending on variant) */}
+                <div className={`${project.layoutVariant === "full-width" ? "lg:col-span-12" : "lg:col-span-7"} bg-[#111522] p-8 rounded border border-white/5 space-y-6 relative overflow-hidden min-h-[220px] flex flex-col justify-between transition-transform duration-500 group-hover:scale-[1.02]`}>
                   <div className="flex items-center justify-between font-mono text-xs text-[#8D929E]">
                     <span>{project.tag}</span>
                     <span className="text-[#8C8FD8] uppercase font-bold">{project.category}</span>
                   </div>
 
                   <div className="my-auto">
-                    <h3 className="font-heading text-2xl sm:text-3xl font-bold text-[#F4F2ED] group-hover:text-[#6575C7] transition-colors">
+                    <h3 className="font-heading text-2xl sm:text-3xl font-bold text-[#F4F2ED] group-hover:text-[#6575C7] transition-all duration-300 transform group-hover:-translate-y-1">
                       {project.title}
                     </h3>
                   </div>
 
                   <div className="flex items-center justify-between text-xs text-[#8D929E]">
                     <span>CBA CASE FRAMEWORK</span>
-                    <span className="flex items-center gap-1 text-[#8C8FD8]">
+                    <span className="flex items-center gap-1 text-[#8C8FD8] transition-transform duration-300 group-hover:translate-x-1">
                       <Eye className="w-3.5 h-3.5" /> Preview Details
                     </span>
                   </div>
                 </div>
+
 
                 {/* Right Text Description Block (5 cols) */}
                 {project.layoutVariant !== "full-width" && (
